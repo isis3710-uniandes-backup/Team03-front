@@ -2,13 +2,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./public/index.html",
-  filename: "./index_bundle.html",
+  filename: "./index.html",
   favicon: "./public/favicon.ico"
 });
 
 module.exports = {
-  entry: './src/app/index.js',
-  output: {path:__dirname +'/src/public', filename: 'bundle.js'},
   module: {
     rules: [
       {
