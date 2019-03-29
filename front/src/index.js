@@ -1,15 +1,9 @@
-<<<<<<< HEAD
+
 import React from 'react';
 import { render } from "react-dom";
-import MainPage from './Components/Design/MainPage'
+import MainPage from './components/Design/MainPage'
+import App from './App'
 require('./styles.css');
 
-render(<MainPage />, document.getElementById('root'));
-=======
-import React from "react";
-import ReactDOM from "react-dom";
+render(<MainPage />, document.getElementById('app'));
 
-import App from './App'
-
-ReactDOM.render(<App/>, document.getElementById("app"));
->>>>>>> refs/remotes/origin/master

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class ContratadorService extends Component {
   
     retrieveItems() {
-        return fetch('localhost:3000/api/contractor/')
+        return fetch('http://localhost:3000/api/contractor/')
         .then(response => {
           if (!response.ok) {
             this.handleResponseError(response);
