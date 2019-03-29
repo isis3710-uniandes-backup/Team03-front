@@ -180,7 +180,7 @@ class App extends Component {
           :
           <div>
               
-             <Home/>
+             <Contratador/>
           </div>
         }        
 
