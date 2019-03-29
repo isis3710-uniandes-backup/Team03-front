@@ -5,6 +5,9 @@ import LogIn from './components/LogIn'
 import AdminProfile from './components/adminComponents/AdminProfile'
 import AdminContests from './components/adminComponents/AdminContests'
 
+import Contratador from './components/contratadorComponent/Contratador';
+
+
 class App extends Component {
 
   constructor() {
@@ -176,7 +179,8 @@ class App extends Component {
             </div>
           :
           <div>
-            <Home/>   
+              
+             <Home/>
           </div>
         }        
 
@@ -184,5 +188,5 @@ class App extends Component {
     )     
   }  
 }
-
+//<Home/> 
 export default App;
