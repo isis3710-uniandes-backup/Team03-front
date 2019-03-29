@@ -3,24 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "copy-to-clipboard": "^3.0.8",
-    "dateformat": "^3.0.3",
-    "materialize-css": "^1.0.0",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-materialize": "^3.0.2",
-    "react-paginate": "^6.3.0",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "webpack": "webpack --mode development --watch"
+    "eject": "react-scripts eject"
   },
-  "eslintConfig": {
+  "proxy": "http://localhost:8082/",
+ "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": [
