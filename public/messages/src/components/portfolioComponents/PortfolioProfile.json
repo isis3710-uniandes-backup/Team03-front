@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Portfolio.Type",
+    "defaultMessage": "Type"
+  },
+  {
+    "id": "Portfolio.Description",
+    "defaultMessage": "Description"
+  },
+  {
+    "id": "Portfolio.Entries",
+    "defaultMessage": "# of Entries"
+  }
+]

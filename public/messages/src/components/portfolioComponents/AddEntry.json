@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Entry.Title",
+    "defaultMessage": "Entry Name"
+  },
+  {
+    "id": "Entry.Description",
+    "defaultMessage": "Description"
+  },
+  {
+    "id": "Entry.Hashtags",
+    "defaultMessage": "Hashtags"
+  }
+]

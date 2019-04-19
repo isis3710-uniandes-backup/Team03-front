@@ -1,0 +1,26 @@
+[
+  {
+    "id": "Profile.Title",
+    "defaultMessage": "My Profile"
+  },
+  {
+    "id": "Profile.NameLabels",
+    "defaultMessage": "Names"
+  },
+  {
+    "id": "Profile.LastNameLabels",
+    "defaultMessage": "Last Names"
+  },
+  {
+    "id": "Profile.EmailLabel",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "Profile.PortfolioNumberLabel",
+    "defaultMessage": "# of Portfolios"
+  },
+  {
+    "id": "Profile.BirthdateLabel",
+    "defaultMessage": "Birthdate"
+  }
+]

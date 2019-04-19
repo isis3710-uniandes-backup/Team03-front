@@ -1,0 +1,18 @@
+[
+  {
+    "id": "Portfolio.Title",
+    "defaultMessage": "Portfolio Name"
+  },
+  {
+    "id": "Portfolio.URL",
+    "defaultMessage": "Desired URL"
+  },
+  {
+    "id": "Portfolio.Type",
+    "defaultMessage": "Type"
+  },
+  {
+    "id": "Portfolio.Description",
+    "defaultMessage": "Description"
+  }
+]

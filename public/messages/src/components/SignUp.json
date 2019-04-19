@@ -1,0 +1,58 @@
+[
+  {
+    "id": "SignUp.FormTitle",
+    "defaultMessage": "Sign Up Form"
+  },
+  {
+    "id": "SignUp.FormSubTitle",
+    "defaultMessage": "Register as a user, remember that the entered data is necessary to log in once you sign up."
+  },
+  {
+    "id": "SignUp.UserTitle",
+    "defaultMessage": "User"
+  },
+  {
+    "id": "SignUp.ContractorTitle",
+    "defaultMessage": "Contractor"
+  },
+  {
+    "id": "SignUp.NameLabel",
+    "defaultMessage": "Name"
+  },
+  {
+    "id": "SignUp.LastNameLabel",
+    "defaultMessage": "Last Names"
+  },
+  {
+    "id": "SignUp.LoginLabel",
+    "defaultMessage": "Login"
+  },
+  {
+    "id": "SignUp.BirthdateLabel",
+    "defaultMessage": "Day of Birth"
+  },
+  {
+    "id": "SignUp.EmailLabel",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "SignUp.EmailHint",
+    "defaultMessage": "Enter your email..."
+  },
+  {
+    "id": "SignUp.PasswordLabel",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "SignUp.PasswordHint",
+    "defaultMessage": "The password must be at least 8 characters"
+  },
+  {
+    "id": "SignUp.ConfirmPasswordLabel",
+    "defaultMessage": "Confirm the Password"
+  },
+  {
+    "id": "SignUp.ConfirmPasswordHint",
+    "defaultMessage": "Please retype your password"
+  }
+]

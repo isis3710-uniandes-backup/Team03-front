@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SignIn.FormTitle",
+    "defaultMessage": "Sign In"
+  },
+  {
+    "id": "SignIn.UserLoginLabel",
+    "defaultMessage": "Login or Email"
+  },
+  {
+    "id": "SignIn.UserLoginHint",
+    "defaultMessage": "Enter your email or login ..."
+  },
+  {
+    "id": "SignIn.PasswordLabel",
+    "defaultMessage": "Password"
+  },
+  {
+    "id": "SignIn.SignInButton",
+    "defaultMessage": "Sign In"
+  },
+  {
+    "id": "SignIn.RegisterLabel",
+    "defaultMessage": "If you do not have a registered account, you can create it"
+  },
+  {
+    "id": "SignIn.RegisterEndLabel",
+    "defaultMessage": "here."
+  }
+]

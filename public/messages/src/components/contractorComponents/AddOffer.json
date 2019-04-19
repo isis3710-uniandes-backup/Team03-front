@@ -1,0 +1,30 @@
+[
+  {
+    "id": "Offer.DataTitle",
+    "defaultMessage": "Offer Data"
+  },
+  {
+    "id": "Offer.Title",
+    "defaultMessage": "Offer Title"
+  },
+  {
+    "id": "Offer.Terms",
+    "defaultMessage": "Terms"
+  },
+  {
+    "id": "Offer.BeginDateLabel",
+    "defaultMessage": "Initial date"
+  },
+  {
+    "id": "Offer.LastDateLabel",
+    "defaultMessage": "Last date"
+  },
+  {
+    "id": "App.Cancel",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "App.Confirm",
+    "defaultMessage": "Confirm"
+  }
+]

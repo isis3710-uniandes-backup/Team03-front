@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Portfolio.Type",
+    "defaultMessage": "Type"
+  },
+  {
+    "id": "Portfolio.Description",
+    "defaultMessage": "Description"
+  },
+  {
+    "id": "Portfolios.Open",
+    "defaultMessage": "Description"
+  },
+  {
+    "id": "Portfolios.Share",
+    "defaultMessage": "Share"
+  },
+  {
+    "id": "UserPortfolios.Title",
+    "defaultMessage": "My Portfolios"
+  },
+  {
+    "id": "Portfolios.DeleteTitle",
+    "defaultMessage": "Delete Portfolio?"
+  },
+  {
+    "id": "Portfolios.DeleteMessage",
+    "defaultMessage": "If the portfolio has entries, these will be deleted as well. Are you sure you want to delete this portfolio?"
+  },
+  {
+    "id": "App.No",
+    "defaultMessage": "No"
+  },
+  {
+    "id": "App.Yes",
+    "defaultMessage": "Yes"
+  }
+]

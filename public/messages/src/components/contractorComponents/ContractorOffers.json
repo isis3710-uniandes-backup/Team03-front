@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Offers.Terms",
+    "defaultMessage": "Terms:"
+  },
+  {
+    "id": "Offers.BeginDate",
+    "defaultMessage": "Initial Date:"
+  },
+  {
+    "id": "Offers.EndDate",
+    "defaultMessage": "Last Date:"
+  },
+  {
+    "id": "Offers.Open",
+    "defaultMessage": "Abrir"
+  },
+  {
+    "id": "Offers.Title",
+    "defaultMessage": "My Offers"
+  },
+  {
+    "id": "Offers.DeleteTitle",
+    "defaultMessage": "Delete Offer?"
+  },
+  {
+    "id": "Offers.DeleteMessage",
+    "defaultMessage": "If the offer has entries, these will be deleted as well. Are you sure you want to delete this portfolio?"
+  },
+  {
+    "id": "App.No",
+    "defaultMessage": "No"
+  },
+  {
+    "id": "App.Yes",
+    "defaultMessage": "Yes"
+  }
+]

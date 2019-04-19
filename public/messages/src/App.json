@@ -1,0 +1,66 @@
+[
+  {
+    "id": "App.Profile",
+    "defaultMessage": "Profile"
+  },
+  {
+    "id": "App.UserPortfolios",
+    "defaultMessage": "My Portfolios"
+  },
+  {
+    "id": "App.SignOut",
+    "defaultMessage": "Sign Out"
+  },
+  {
+    "id": "App.ContractorOffers",
+    "defaultMessage": "My Offers"
+  },
+  {
+    "id": "App.SignUp",
+    "defaultMessage": "Sign Up"
+  },
+  {
+    "id": "App.Login",
+    "defaultMessage": "Sign In"
+  },
+  {
+    "id": "App.Portfolios",
+    "defaultMessage": "Portfolios"
+  },
+  {
+    "id": "App.Offers",
+    "defaultMessage": "Offers"
+  },
+  {
+    "id": "App.SignOutMessageTitle",
+    "defaultMessage": "Log Out?"
+  },
+  {
+    "id": "App.SignOutMessage",
+    "defaultMessage": "Are you sure you want to log out?"
+  },
+  {
+    "id": "App.No",
+    "defaultMessage": "No"
+  },
+  {
+    "id": "App.Yes",
+    "defaultMessage": "Yes"
+  },
+  {
+    "id": "Home.greetings",
+    "defaultMessage": "Thank you for your visit!"
+  },
+  {
+    "id": "Home.safety",
+    "defaultMessage": "This page ensures the security of your shared media files. Keep calm."
+  },
+  {
+    "id": "Home.creators",
+    "defaultMessage": "Creators"
+  },
+  {
+    "id": "Home",
+    "defaultMessage": "Home"
+  }
+]
