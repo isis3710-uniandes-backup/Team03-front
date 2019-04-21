@@ -39,7 +39,7 @@ class PortfolioProfile extends Component {
       <div className="container">
         <center>
           <div>
-            <a onClick={this.props.salir} className="waves-effect waves-light btn grey darken-3">Volver</a>
+            <span onClick={this.props.salir} className="waves-effect waves-light btn grey darken-3"><FormattedMessage id="Portfolios.Back" defaultMessage="Back"/></span>
             <br></br>
             <br></br>
           </div>
@@ -51,12 +51,7 @@ class PortfolioProfile extends Component {
             <tbody>
               <tr>
                 <td>
-                  <b>
-                    <FormattedMessage
-                      id="Portfolio.Type"
-                      defaultMessage="Type"
-                    />
-                  </b>
+                  <b><FormattedMessage id="Portfolio.Type" defaultMessage="Type"/></b>
                 </td>
                 <td>{this.state.portfolio_type}</td>
               </tr>

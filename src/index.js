@@ -6,7 +6,7 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 import localeData from './data.json';
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PortfolioFromURL from './PortfolioFromURL'
 
 addLocaleData([...en, ...es]);

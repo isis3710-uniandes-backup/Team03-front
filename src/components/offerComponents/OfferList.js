@@ -49,7 +49,7 @@ class OfferList extends Component {
                 <div className="col s4" key={oferta.id}>
                     <div className="card medium sticky-action">
                         <div className="card-image waves-effect waves-block waves-light">
-                            <img className="activator" src={"./files/images/banner/" + oferta.offer_banner} />
+                            <img className="activator" src={"./files/images/banner/" + oferta.offer_banner} alt={oferta.offer_name}/>
                         </div>
                         <div className="card-content">
                             <span className="card-title activator grey-text text-darken-4">{oferta.offer_name}<i className="material-icons right">more_vert</i></span>
@@ -61,7 +61,7 @@ class OfferList extends Component {
                             <p><b>Fecha Fin:</b>   <FormattedDate value={new Date(oferta.offer_enddate)}/></p>
                         </div>
                         <div className="card-action">
-                            <a href="#" onClick={() => this.toOfferProfile(oferta)} className="black-text"><b>Abrir</b></a>
+                            <span onClick={() => this.toOfferProfile(oferta)} className="waves-effect waves-teal btn-flat black-text"><b><FormattedMessage id="Portfolios.Open" defaultMessage="Open"/></b></span>
                         </div>
                     </div>
                 </div>

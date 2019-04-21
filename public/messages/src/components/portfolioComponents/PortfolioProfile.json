@@ -1,5 +1,9 @@
 [
   {
+    "id": "Portfolios.Back",
+    "defaultMessage": "Back"
+  },
+  {
     "id": "Portfolio.Type",
     "defaultMessage": "Type"
   },

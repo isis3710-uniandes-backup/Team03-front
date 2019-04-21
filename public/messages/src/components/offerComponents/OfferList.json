@@ -1,5 +1,9 @@
 [
   {
+    "id": "Portfolios.Open",
+    "defaultMessage": "Open"
+  },
+  {
     "id": "Offers.Title",
     "defaultMessage": "Offers"
   }

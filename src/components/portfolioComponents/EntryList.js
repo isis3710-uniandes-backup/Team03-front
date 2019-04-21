@@ -37,6 +37,8 @@ class EntryList extends Component {
                     const imgName = './files/images/' + element.entry_url;
                     const entry = {
                         src: imgName,
+                        width: 4,
+                        height: 3,                        
                         alt: element.entry_name
                     };
                     newImages.push(entry);

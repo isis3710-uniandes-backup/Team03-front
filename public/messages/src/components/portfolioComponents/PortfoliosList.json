@@ -8,6 +8,14 @@
     "defaultMessage": "Description"
   },
   {
+    "id": "Portfolios.Open",
+    "defaultMessage": "Open"
+  },
+  {
+    "id": "Portfolios.Share",
+    "defaultMessage": "Share"
+  },
+  {
     "id": "Portfolios.Title",
     "defaultMessage": "Portfolios"
   }
