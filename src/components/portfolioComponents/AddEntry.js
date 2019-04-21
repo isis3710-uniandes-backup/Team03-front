@@ -279,7 +279,7 @@ class AddEntry extends Component {
                         : null
                 }
                 <br></br>
-                <center><a onClick={this.cancelar} className="waves-effect waves-light btn red darken-2">Cancelar</a>   <a onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">Confirmar</a></center>
+                <center><span onClick={this.cancelar} className="waves-effect waves-light btn red darken-2"><FormattedMessage id="Portfolios.Cancel" defaultMessage="Cancel"/></span>   <span onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3"><FormattedMessage id="Portfolios.Confirm" defaultMessage="Confirm"/></span></center>
 
             </div>
         )

@@ -16,6 +16,14 @@
     "defaultMessage": "Share"
   },
   {
+    "id": "Portfolios.Delete",
+    "defaultMessage": "Delete"
+  },
+  {
+    "id": "Portfolios.Edit",
+    "defaultMessage": "Edit"
+  },
+  {
     "id": "UserPortfolios.Title",
     "defaultMessage": "My Portfolios"
   },

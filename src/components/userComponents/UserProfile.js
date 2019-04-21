@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import dateFormat from 'dateformat';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 
 class UserProfile extends Component {
@@ -13,12 +12,14 @@ class UserProfile extends Component {
       services: []
     }
     fetch('/api/user/' + this.state.idLogged).then(res => res.json()).then(data => {
+      data.user_birthdate=data.user_birthdate.split('T')[0];
       if (data.Portfolios == null) {
         this.setState({
           user: data
         });
       }
       else {
+     
         this.setState({
           user: data,
           portfolios: data.Portfolios
@@ -32,7 +33,6 @@ class UserProfile extends Component {
   }
 
   render() {
-
     return (
 
       <div className="container">
@@ -100,7 +100,7 @@ class UserProfile extends Component {
                     />
                   </b>
                 </td>
-                <td><FormattedDate value={new Date(this.state.user.user_birthdate)} /></td>
+                <td><FormattedDate value={new Date(this.state.user.user_birthdate)} year='numeric'	month='long' day='numeric'/> </td>
               </tr>
             </tbody>
           </table>

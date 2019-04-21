@@ -10,5 +10,13 @@
   {
     "id": "Entry.Hashtags",
     "defaultMessage": "Hashtags"
+  },
+  {
+    "id": "Portfolios.Cancel",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "Portfolios.Confirm",
+    "defaultMessage": "Confirm"
   }
 ]

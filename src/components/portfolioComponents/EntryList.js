@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl'
-import M from "materialize-css";
 import Gallery from 'react-photo-gallery';
 import AddEntry from './AddEntry';
 
@@ -96,7 +95,7 @@ class EntryList extends Component {
                     <center><h5> <FormattedMessage
                         id="PortfoliosEntry.Title"
                         defaultMessage="Entries"
-                    /> {!this.state.agregando && !this.state.externo ? <a onClick={this.toAdd} className="btn-floating btn-large waves-effect waves-light red darken-3"><i className="material-icons">add</i></a> : null}</h5></center>
+                    /> {!this.state.agregando && !this.state.externo ? <span onClick={this.toAdd} className="btn-floating btn-large waves-effect waves-light red darken-3"><i className="material-icons">add</i></span> : null}</h5></center>
                     <br></br>
 
                     {

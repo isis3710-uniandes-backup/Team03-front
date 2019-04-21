@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import dateFormat from 'dateformat';
 
 class ContractorProfile extends Component{
 

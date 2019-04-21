@@ -78,7 +78,7 @@ class SignUp extends Component {
         });
       }
     } else {
-      if (this.state.contractor_password !== this.state.contractor_password) {
+      if (this.state.contractor_password !== this.state.contractor_password_confirm) {
         M.toast({ html: 'Las contraseñas no coinciden', classes: 'rounded' });
       }
       else if (this.state.contractor_password.length < 8) {
@@ -155,7 +155,7 @@ class SignUp extends Component {
                     </a>
                   </li>
                   <li className="tab col s6">
-                    <a href="#conForm" onClick={() => this.setState({ user_switch: false })}>>
+                    <a href="#conForm" onClick={() => this.setState({ user_switch: false })}>
                       <FormattedMessage
                         id="SignUp.ContractorTitle"
                         defaultMessage="Contractor"
@@ -336,7 +336,7 @@ class SignUp extends Component {
           </form>
 
           <br></br>
-          <center><a onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">Registrarse</a></center>
+          <center><span onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">Registrarse</span></center>
         </div>
       </div>
     )

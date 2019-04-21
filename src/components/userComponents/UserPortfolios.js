@@ -139,7 +139,7 @@ class UserPortfolios extends Component {
         <div className="col s4" key={portafolio.id}>
           <div className="card medium sticky-action">
             <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt=""/>
+              <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt={portafolio.portfolio_name}/>
             </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{portafolio.portfolio_name}<i className="material-icons right">more_vert</i></span>
@@ -153,7 +153,7 @@ class UserPortfolios extends Component {
                     id="Portfolio.Type"
                     defaultMessage="Type"
                   />
-                </b>
+                </b>: 
                 {portafolio.portfolio_type}
               </p>
               <p>
@@ -162,29 +162,21 @@ class UserPortfolios extends Component {
                     id="Portfolio.Description"
                     defaultMessage="Description"
                   />
-                </b>
+                </b>: 
                 {portafolio.portfolio_description}
               </p>
             </div>
             <div className="card-action">
-              <a href="" onClick={() => this.toPortfolioProfile(portafolio)} className="black-text">
+              <span onClick={() => this.toPortfolioProfile(portafolio)} className=" btn-flat  black-text">
                 <b>
-                  <FormattedMessage
-                    id="Portfolios.Open"
-                    defaultMessage="Description"
-                  />
+                  <FormattedMessage  id="Portfolios.Open" defaultMessage="Description"/>
                 </b>
-              </a>
-              <a href="#" onClick={() => this.compartirURL(portafolio.portfolio_url)} className="black-text">
-                <b>
-                  <FormattedMessage
-                    id="Portfolios.Share"
-                    defaultMessage="Share"
-                  />
-                </b>
-              </a>
-              <a href="#confirmDeleteModal" onClick = {() => this.toDelete(portafolio.id)} className="modal-trigger black-text"><i className="material-icons right">delete</i></a>
-              <a href="#" onClick = {() => this.toEdit(portafolio)} className="black-text"><i className="material-icons right">edit </i></a>
+              </span>
+              <span onClick={() => this.compartirURL(portafolio.portfolio_url)} className=" btn-flat black-text">
+                <b><FormattedMessage  id="Portfolios.Share"  defaultMessage="Share" /></b>
+              </span>
+              <a href="#confirmDeleteModal" onClick = {() => this.toDelete(portafolio.id)} className=" waves-effect waves-teal btn-flat modal-trigger black-text"><i className="material-icons right">delete</i><FormattedMessage  id="Portfolios.Delete"  defaultMessage="Delete" /></a>
+              <span onClick = {() => this.toEdit(portafolio)} className="waves-effect waves-teal btn-flat black-text"><i className="material-icons right">edit</i><FormattedMessage  id="Portfolios.Edit"  defaultMessage="Edit" /></span>
             </div>
           </div>
 

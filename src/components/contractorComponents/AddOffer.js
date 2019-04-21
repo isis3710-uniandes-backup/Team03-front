@@ -319,18 +319,18 @@ class AddOffer extends Component {
                 }
                 <br></br>
                 <center>
-                    <a  href="" onClick={this.cancelar} className="waves-effect waves-light btn gray darken-2">
+                    <span  href="" onClick={this.cancelar} className="waves-effect waves-light btn gray darken-2">
                         <FormattedMessage
                             id="App.Cancel"
                             defaultMessage="Cancel"
                         />
-                    </a>
-                    <a onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">
+                    </span>
+                    <span onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">
                         <FormattedMessage
                             id="App.Confirm"
                             defaultMessage="Confirm"
                         />
-                    </a></center>
+                    </span></center>
 
             </div>
         )

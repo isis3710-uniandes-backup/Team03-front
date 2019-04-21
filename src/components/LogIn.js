@@ -118,12 +118,12 @@ class LogIn extends Component {
 
                     <br></br>
 
-                    <center><a onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">
+                    <center><span onClick={this.handleSubmit} className="waves-effect waves-light btn red darken-3">
                         <FormattedMessage
                             id="SignIn.SignInButton"
                             defaultMessage="Sign In"
                         />
-                    </a></center>
+                    </span></center>
                     <br></br>
                     <center>
                         <h6>
@@ -131,12 +131,12 @@ class LogIn extends Component {
                                 id="SignIn.RegisterLabel"
                                 defaultMessage="If you do not have a registered account, you can create it "
                             />
-                            <a href="#" onClick={this.props.toSignUp}>
+                            <span onClick={this.props.toSignUp}>
                                 <FormattedMessage
                                     id="SignIn.RegisterEndLabel"
                                     defaultMessage="here."
                                 />
-                            </a>
+                            </span>
                         </h6>
                     </center>
                 </div>
