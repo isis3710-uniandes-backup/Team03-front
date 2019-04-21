@@ -101,7 +101,7 @@ class AddOffer extends Component {
                 }
             }
             else {
-                if (banner == null || this.state.offer_name == '' || this.state.offer_terms == '') {
+                if (banner === null || this.state.offer_name === '' || this.state.offer_terms === '') {
                     M.toast({ html: this.state.messages['Offer.ValidValuesImage'], classes: 'rounded' });
                 }
                 else if ((new Date(this.state.offer_begindate)).getTime() > (new Date(this.state.offer_enddate)).getTime()) {
@@ -319,7 +319,7 @@ class AddOffer extends Component {
                 }
                 <br></br>
                 <center>
-                    <a onClick={this.cancelar} className="waves-effect waves-light btn gray darken-2">
+                    <a  href="" onClick={this.cancelar} className="waves-effect waves-light btn gray darken-2">
                         <FormattedMessage
                             id="App.Cancel"
                             defaultMessage="Cancel"

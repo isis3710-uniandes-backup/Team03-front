@@ -94,7 +94,7 @@ class AddPortfolio extends Component {
                 }
             }
             else {
-                if (banner == null || this.state.portfolio_name == '' || this.state.portfolio_url == '' || this.state.portfolio_type == '' || this.state.portfolio_description == '') {
+                if (banner === null || this.state.portfolio_name === '' || this.state.portfolio_url === '' || this.state.portfolio_type === '' || this.state.portfolio_description === '') {
                     M.toast({ html: 'Ingresa valores válidos para el portafolio y una imagen para su perfil', classes: 'rounded' });
                 }
                 else {

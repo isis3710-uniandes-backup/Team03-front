@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import M from "materialize-css";
 import { FormattedMessage } from 'react-intl';
-import {Chip} from 'react-materialize';
 
 class AddEntry extends Component {
     constructor(props) {
@@ -94,7 +93,7 @@ class AddEntry extends Component {
                 }
             }
             else {
-                if (banner == null || this.state.entry_name == '' || this.state.entry_description == '') {
+                if (banner === null || this.state.entry_name === '' || this.state.entry_description === '') {
                     M.toast({ html: 'Ingresa valores válidos para la entrada', classes: 'rounded' });
                 }
                 else {

@@ -14,7 +14,7 @@ class PortfolioFromURL extends Component{
     const urlPortfolio = this.props.match.params.portfolio;
     console.log(urlPortfolio);
     fetch('/portfolio/'+urlPortfolio).then(res => res.json()).then(data => {   
-      if(data.length == 0){
+      if(data.length === 0){
         throw new Error("No hay ningún portfolio registrado con esta URL. Intente con otra.");
       }
       else{

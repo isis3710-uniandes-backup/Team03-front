@@ -139,7 +139,7 @@ class UserPortfolios extends Component {
         <div className="col s4" key={portafolio.id}>
           <div className="card medium sticky-action">
             <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} />
+              <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt=""/>
             </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{portafolio.portfolio_name}<i className="material-icons right">more_vert</i></span>
@@ -167,7 +167,7 @@ class UserPortfolios extends Component {
               </p>
             </div>
             <div className="card-action">
-              <a href="#" onClick={() => this.toPortfolioProfile(portafolio)} className="black-text">
+              <a href="" onClick={() => this.toPortfolioProfile(portafolio)} className="black-text">
                 <b>
                   <FormattedMessage
                     id="Portfolios.Open"

@@ -35,23 +35,23 @@ class LogIn extends Component {
                 }
             });
 
-            if (identified == true) {
+            if (identified === true) {
                 M.toast({ html: this.state.messages['SignIn.Identified'], classes: 'rounded' });
                 this.props.enableLogIn({ idIdentified, user });
             }
             else {
                 fetch('/api/contractor').then(res => res.json()).then(data => {
                     data.forEach((dat) => {
-                        if ((dat.contractor_email == this.state.user_login || dat.contractor_login == this.state.user_login) && dat.contractor_password == this.state.user_password) {
+                        if ((dat.contractor_email === this.state.user_login || dat.contractor_login === this.state.user_login) && dat.contractor_password === this.state.user_password) {
                             idIdentified = dat.id;
                             identified = true;
                         }
                     });
 
-                    if (identified == true) {
+                    if (identified === true) {
                         M.toast({ html: this.state.messages['SignIn.Identified'], classes: 'rounded' });
                         this.props.enableLogIn({ idIdentified, user });
-                    } else if (this.state.user_password == '' || this.state.user_login == '') {
+                    } else if (this.state.user_password === '' || this.state.user_login === '') {
                         M.toast({ html: this.state.messages['SignIn.NotValid'], classes: 'rounded' });
                     }
                     else {

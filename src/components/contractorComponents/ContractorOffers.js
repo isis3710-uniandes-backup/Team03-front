@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import copy from 'copy-to-clipboard';
 import M from "materialize-css";
 import AddOffer from './AddOffer';
 import OfferProfile from '../offerComponents/OfferProfile';
@@ -134,7 +133,7 @@ class ContractorOffers extends Component {
         <div className="col s4" key={oferta.id}>
           <div className="card medium sticky-action">
             <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src={"./files/images/banner/" + oferta.offer_banner} />
+              <img className="activator" src={"./files/images/banner/" + oferta.offer_banner} alt=""/>
             </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{oferta.offer_name}<i className="material-icons right">more_vert</i></span>

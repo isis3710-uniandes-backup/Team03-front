@@ -38,13 +38,13 @@ class SignUp extends Component {
     var user = false;
 
     if (this.state.user_switch) {
-      if (this.state.user_password != this.state.user_password_confirm) {
+      if (this.state.user_password !== this.state.user_password_confirm) {
         M.toast({ html: 'Las contraseñas no coinciden', classes: 'rounded' });
       }
       else if (this.state.user_password.length < 8) {
         M.toast({ html: 'La contraseña debe tener 8 caracteres mínimo', classes: 'rounded' });
       }
-      else if (this.state.user_password == '' || this.state.user_names == '' || this.state.user_lastnames == '' || this.state.user_email == '') {
+      else if (this.state.user_password === '' || this.state.user_names === '' || this.state.user_lastnames === '' || this.state.user_email === '') {
         M.toast({ html: 'Ingresa valores válidos para registrarse', classes: 'rounded' });
       }
       else {
@@ -78,13 +78,13 @@ class SignUp extends Component {
         });
       }
     } else {
-      if (this.state.contractor_password != this.state.contractor_password) {
+      if (this.state.contractor_password !== this.state.contractor_password) {
         M.toast({ html: 'Las contraseñas no coinciden', classes: 'rounded' });
       }
       else if (this.state.contractor_password.length < 8) {
         M.toast({ html: 'La contraseña debe tener 8 caracteres mínimo', classes: 'rounded' });
       }
-      else if (this.state.contractor_password == '' || this.state.contractor_email == '' || this.state.contractor_login == '' || this.state.contractor_name == '') {
+      else if (this.state.contractor_password === '' || this.state.contractor_email === '' || this.state.contractor_login === '' || this.state.contractor_name === '') {
         M.toast({ html: 'Ingresa valores válidos para registrarse', classes: 'rounded' });
       } else {
         const nuevoContratista = { contractor_name: this.state.contractor_name, contractor_email: this.state.contractor_email, contractor_login: this.state.contractor_login, contractor_password: this.state.contractor_password };
