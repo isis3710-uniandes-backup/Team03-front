@@ -8,7 +8,7 @@ Para ejecutar el back-end por favor dirijase al README.md del back-end.
 
 El usuario puede hacer log in o registrarse a la pagina utilizando los botones con dichos nombres. Posteriormente, el usuario podrá observar la información asociada a
 su usuario navegando las pestañas dentro de la página.
-Actualemte no está implementada la creación y eliminación de entradas en la información del usuario ya que solo era requerido visualizar la informaci�n del backend.
+Actualemte no está implementada la creación y eliminación de entradas en la información del usuario ya que solo era requerido visualizar la información del backend.
 Lo anterior será implementado para la siguiente entrega en la que los usuarios ya deban interactuar con la página.
 
 
