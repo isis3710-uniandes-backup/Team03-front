@@ -173,7 +173,7 @@ class App extends Component {
 
   render() {
     return (
-      <body>
+      <div className="App-main">
         <header>
           <div className="navbar-fixed">
             <nav>
@@ -181,11 +181,11 @@ class App extends Component {
                 <div className="row">
                   <div className="col s12">
                     <a href="#" onClick={this.toHome} className="brand-logo"><img className="responsive-img" src={logo} alt="Logo" width="40px" height="40px" /> Minerva's Gallery</a>
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                    <a  data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                    
                       {
                         this.state.iniciadoUser ?
-                          <div>
+                        <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
                               <a onClick={this.toProfile}>
                                 <FormattedMessage
@@ -210,9 +210,9 @@ class App extends Component {
                                 />
                               </a>
                             </li>
-                          </div>
+                            </ul> 
                           : this.state.iniciadoContractor ?
-                            <div>
+                          <ul id="nav-mobile" className="right hide-on-med-and-down">
                               <li>
                                 <a onClick={this.toProfile}>
                                   <FormattedMessage
@@ -237,9 +237,9 @@ class App extends Component {
                                   />
                                 </a>
                               </li>
-                            </div>
+                              </ul>
                             :
-                            <div>
+                            <ul id="nav-mobile" className="right hide-on-med-and-down">
                               <li>
                                 <a onClick={this.toSignUp}>
                                   <FormattedMessage
@@ -272,9 +272,9 @@ class App extends Component {
                                   />
                                 </a>
                               </li>
-                            </div>
+                              </ul>
                       }
-                    </ul>
+                    
                   </div>
                 </div>
               </div>
@@ -497,7 +497,7 @@ class App extends Component {
             </div>
           </div>
         </footer>
-      </body>
+      </div>
     )
   }
 }

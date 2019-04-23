@@ -194,7 +194,7 @@ class AddPortfolio extends Component {
                                 <div className="row">
                                     <div className="input-field col s6">
                                         <select id="portfolio_type" onChange={this.handleInput} defaultValue={this.state.portfolio_type} >
-                                            <option value="" disabled selected>
+                                            <option value="Hint" disabled >
                                                 {this.state.messages["Portfolio.TypeHint"]}
                                             </option>
                                             <option value="Art">
@@ -273,8 +273,8 @@ class AddPortfolio extends Component {
                                 </div>
                                 <div className="row">
                                     <div className="input-field col s6">
-                                        <select id="portfolio_type" onChange={this.handleInput}>
-                                            <option value="" disabled selected>
+                                        <select id="portfolio_type" onChange={this.handleInput} defaultValue="Hint">
+                                            <option value="Hint" disabled >
                                                 {this.state.messages["Portfolio.TypeHint"]}
                                             </option>
                                             <option value="Art">
