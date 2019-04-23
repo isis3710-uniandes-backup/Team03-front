@@ -17,9 +17,11 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Carousel options={{fullWidth: true,indicators: true}} className="white-text center">
+      <div className="container center">
+      <h1>Minerva's Gallery</h1> 
+        <Carousel options={{fullWidth: true,indicators: true}} className="white-text center">        
         <div className="black-text">
+        
             <img className="responsive-img" src="https://cdn-images-1.medium.com/max/1200/0*tYrH09HFBgEaDY5C.jpg" alt="imagen ejemplo portafolio 1" />
         </div>
         <div className="black-text">
@@ -36,13 +38,13 @@ class Home extends Component {
 
         <div className="container">
           <center>
-            <h5>
+            <h2>
               <FormattedMessage
                 id="Home.Title"
                 defaultMessage="What is Minerva's Gallery?"
               />
-            </h5>
-            <p>
+            </h2>
+            <p className="flow-text">
               <FormattedMessage
                 id="Home.purpose"
                 defaultMessage="We are a page that allows the autoexhibition of artistic and design works, for the presentation of professional portfolios between freelancers and potential work partners."

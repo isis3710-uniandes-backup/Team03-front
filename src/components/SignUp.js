@@ -145,9 +145,9 @@ class SignUp extends Component {
               </center>
               <br></br>
               <div className="col s12" >
-                <ul className="tabs">
-                  <li className="tab col s6">
-                    <a className="active" href="#userForm" onClick={() => this.setState({ user_switch: true })}>
+                <ul className="tabs ">
+                  <li className="tab col s6 blac">
+                    <a className="active black-text text-darken-4" href="#userForm" onClick={() => this.setState({ user_switch: true })}>
                       <FormattedMessage
                         id="SignUp.UserTitle"
                         defaultMessage="User"
@@ -155,7 +155,7 @@ class SignUp extends Component {
                     </a>
                   </li>
                   <li className="tab col s6">
-                    <a href="#conForm" onClick={() => this.setState({ user_switch: false })}>
+                    <a className="black-text text-darken-4" href="#conForm" onClick={() => this.setState({ user_switch: false })}>
                       <FormattedMessage
                         id="SignUp.ContractorTitle"
                         defaultMessage="Contractor"

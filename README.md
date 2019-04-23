@@ -1,4 +1,8 @@
 # Team03-front
+### Vídeo
+https://youtu.be/m2t0Huz39ds
+
+## Instrucciones
 Para ejecutar el proyecto, es necesario ejecutar tanto el front-end como el back-end en la misma maquina.
 De lo contrario, es necesario especificar la ip y el puerto en el que está siendo ejecutado el back-end en los lugares donde este es referenciado en el front-end.
 
@@ -12,7 +16,7 @@ Actualemte no está implementada la creación y eliminación de entradas en la i
 Lo anterior será implementado para la siguiente entrega en la que los usuarios ya deban interactuar con la página.
 
 
-## Por favor ingrese a los siguientes usuarios para visualizar algo de informaci�n.
+### Por favor ingrese a los siguientes usuarios para visualizar algo de información.
 
 - usuario: wukong, contraseña: password 
 - usuario con privilegios de contratador: ing.fer, contraseña: hakunaMatata
