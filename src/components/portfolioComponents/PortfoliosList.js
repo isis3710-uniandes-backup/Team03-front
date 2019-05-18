@@ -18,7 +18,7 @@ class PortfolioList extends Component {
     }
 
     actualizar() {
-        fetch('/api/portfolio/').then(res => res.json()).then(data => {
+        fetch('http://localhost:8082/api/portfolio/').then(res => res.json()).then(data => {
             if (data != null) {
                 this.setState({
                     portafolios: data
@@ -36,7 +36,7 @@ class PortfolioList extends Component {
       }
 
     toPortfolioProfile(contest) {
-        fetch('/api/portfolio/' + contest.id).then(res => res.json()).then(data => {
+        fetch('http://localhost:8082/api/portfolio/' + contest.id).then(res => res.json()).then(data => {
             this.setState({
                 cambiando: null,
                 agregando: false,

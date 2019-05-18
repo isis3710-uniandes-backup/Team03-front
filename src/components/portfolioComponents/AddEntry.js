@@ -98,7 +98,7 @@ class AddEntry extends Component {
                 }
                 else {
                     const nuevaEntrada = { entry_name: this.state.entry_name, entry_url: banner.name, entry_hashtags: this.state.entry_hashtags, entry_description: this.state.entry_description, PortfolioId: this.state.PortfolioId };
-                    fetch('/api/entry', {
+                    fetch('http://localhost:8082/api/entry', {
                         method: 'POST',
                         body: JSON.stringify(nuevaEntrada),
                         headers: {

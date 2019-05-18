@@ -88,9 +88,9 @@ class UserPortfolios extends Component {
   }
 
   deletePortfolio(id) {
-    fetch('/api/portfolio/' + id).then(res => res.json()).then(data => {
+    fetch('http://localhost:8082/api/portfolio/' + id).then(res => res.json()).then(data => {
 
-      fetch('/api/portfolio/' + id, { method: 'DELETE' }).then(res => {
+      fetch('http://localhost:8082/api/portfolio/' + id, { method: 'DELETE' }).then(res => {
         if (res.ok) {
           M.toast({ html: 'Portafolio eliminado', classes: 'rounded' });
           this.actualizar();
@@ -112,7 +112,7 @@ class UserPortfolios extends Component {
   }
 
   toPortfolioProfile(portfolio) {
-    fetch('/api/portfolio/' + portfolio.id).then(res => res.json()).then(data => {
+    fetch('http://localhost:8082/api/portfolio/' + portfolio.id).then(res => res.json()).then(data => {
       this.setState({
         cambiando: null,
         agregando: false,
