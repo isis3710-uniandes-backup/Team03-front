@@ -20,6 +20,10 @@
     "defaultMessage": "Last date"
   },
   {
+    "id": "Offer.ImageLoadPlaceHolder",
+    "defaultMessage": "Upload the image for the banner of your offer"
+  },
+  {
     "id": "App.Cancel",
     "defaultMessage": "Cancel"
   },

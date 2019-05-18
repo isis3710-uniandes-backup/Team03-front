@@ -113,7 +113,7 @@ class AddOffer extends Component {
                 else {
                     nuevaOferta = { offer_name: this.state.offer_name, offer_banner: banner.name, offer_terms: this.state.offer_terms, offer_begindate: new Date(this.state.offer_begindate), offer_enddate: new Date(this.state.offer_enddate) };
                     console.log(nuevaOferta);
-                    fetch('/api/contractor' + this.state.ContractorId + '/offer/' + this.props.oferta.id, {
+                    fetch('/api/contractor' + this.state.ContractorId + '/offer/' , {
                         method: 'POST',
                         body: JSON.stringify(nuevaOferta),
                         headers: {
@@ -249,8 +249,8 @@ class AddOffer extends Component {
                             <div>
                                 <div className="row">
                                     <div className="input-field col s12">
-                                        <input disabled={true} id="offer_name" type="text" className="validate" onChange={this.handleInput} />
-                                        <label className="active" htmlFor="offer_name">
+                                        <input  id="offer_name" type="text" className="validate" onChange={this.handleInput} />
+                                        <label  htmlFor="offer_name">
                                             <FormattedMessage
                                                 id="Offer.Title"
                                                 defaultMessage="Offer Title"
@@ -261,7 +261,7 @@ class AddOffer extends Component {
                                 <div className="row">
                                     <div className="input-field col s12">
                                         <input id="offer_terms" type="text" className="validate" onChange={this.handleInput} />
-                                        <label className="active" htmlFor="offer_terms">
+                                        <label htmlFor="offer_terms">
                                             <FormattedMessage
                                                 id="Offer.Terms"
                                                 defaultMessage="Terms"
@@ -297,7 +297,10 @@ class AddOffer extends Component {
                                                 <input type="file" ref={(ref) => { this.uploadInput = ref; }} />
                                             </div>
                                             <div className="file-path-wrapper">
-                                                <input className="file-path validate" type="text" placeholder={this.state.messages['Offer.ImageLoadPlaceHolder']} />
+                                                <input className="file-path validate" type="text" placeholder={<FormattedMessage
+                                                id="Offer.ImageLoadPlaceHolder"
+                                                defaultMessage="Upload the image for the banner of your offer"
+                                            />} />
                                             </div>
                                         </div>
                                     </div>

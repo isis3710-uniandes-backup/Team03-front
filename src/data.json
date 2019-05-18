@@ -4,6 +4,7 @@
     "App.UserPortfolios": "My Portfolios",
     "App.SignOut": "Sign Out",
     "App.ContractorContracts": "My Contracts",
+    "App.ContractorOffers":"My Offers",
     "App.SignUp": "Sign Up",
     "App.Login": "Sign In",
     "App.Portfolios": "Portfolios",
@@ -87,7 +88,10 @@
     "Offer.BeginDateLabel": "Initial Date",
     "Offer.LastDateLabel": "Final Date",
     "Offer.ImageLoadPlaceHolder":"Upload the image for the banner of your offer",
-    "Offer.ImageChangePlaceHolder":"You can change the image of the offer"
+    "Offer.ImageChangePlaceHolder":"You can change the image of the offer",
+    "Offers.DeleteTitle":"Delete Offer?",
+    "Offers.DeleteMessage":"If the offer has entries, these will be deleted as well. Are you sure you want to delete this portfolio?"
+
   
   },
   "es": {
@@ -95,6 +99,7 @@
     "App.UserPortfolios": "Mis Portafolios",
     "App.SignOut": "Salir",
     "App.ContractorContracts": "Mis Contractos",
+    "App.ContractorOffers":"Mis ofertas",
     "App.SignUp": "Registrarse",
     "App.Login": "Ingresar",
     "App.Portfolios": "Portafolios",
@@ -178,6 +183,8 @@
     "Offer.BeginDateLabel": "Fecha Inicial",
     "Offer.LastDateLabel": "Fecha Final",
     "Offer.ImageLoadPlaceHolder":"Sube la imagen para el banner de tu oferta.",
-    "Offer.ImageChangePlaceHolder":"Puedes cambiar la imagen de la oferta."
+    "Offer.ImageChangePlaceHolder":"Puedes cambiar la imagen de la oferta.",
+    "Offers.DeleteTitle":"¿Eliminar oferta?",
+    "Offers.DeleteMessage":"Si la oferta tiene entradas, estas también seran eliminadas. ¿Esta seguro que desea eliminar este portafolio?"
   }
 }
