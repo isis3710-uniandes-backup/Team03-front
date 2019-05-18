@@ -93,12 +93,11 @@ class AddEntry extends Component {
                 }
             }
             else {
-                if (banner === null || this.state.entry_name === '' || this.state.entry_description === '') {
+                if (!banner || this.state.entry_name === '' || this.state.entry_description === '') {
                     M.toast({ html: 'Ingresa valores válidos para la entrada', classes: 'rounded' });
                 }
                 else {
                     const nuevaEntrada = { entry_name: this.state.entry_name, entry_url: banner.name, entry_hashtags: this.state.entry_hashtags, entry_description: this.state.entry_description, PortfolioId: this.state.PortfolioId };
-                    console.log(nuevaEntrada);
                     fetch('/api/entry', {
                         method: 'POST',
                         body: JSON.stringify(nuevaEntrada),
