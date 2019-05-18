@@ -202,7 +202,7 @@ class ContractorOffers extends Component {
                 this.state.agregando ?
                   <div className="row">
                     <div className="container">
-                      <AddOffer post={this.postOffer} put={this.putOffer} idLogged={this.state.idLogged} oferta={this.state.cambiando} />
+                      <AddOffer post={this.postOffer} put={this.putOffer} idLogged={this.state.idLogged} oferta={this.state.cambiando}/>
                     </div>
                     <br></br>
                   </div>

@@ -61,7 +61,7 @@ class AddEntry extends Component {
                     }
                     console.log(nuevaEntrada);
 
-                    fetch('/api/entry/' + this.props.entry.id, {
+                    fetch('http://localhost:8082/api/entry/' + this.props.entry.id, {
                         method: 'PUT',
                         body: JSON.stringify(nuevaEntrada),
                         headers: {

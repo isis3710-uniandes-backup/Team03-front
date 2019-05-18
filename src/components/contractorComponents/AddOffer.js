@@ -5,7 +5,7 @@ class AddOffer extends Component {
 
     constructor(props) {
         super(props);
-        if (this.props.oferta != null) {
+        if (this.props.oferta) {
             this.state = {
                 ContractorId: this.props.idLogged,
                 offer_name: this.props.oferta.offer_name,
@@ -111,9 +111,9 @@ class AddOffer extends Component {
                     M.toast({ html: this.state.messages['Date.EndError'], classes: 'rounded' });
                 }
                 else {
-                    nuevaOferta = { offer_name: this.state.offer_name, offer_banner: banner.name, offer_terms: this.state.offer_terms, offer_begindate: new Date(this.state.offer_begindate), offer_enddate: new Date(this.state.offer_enddate) };
+                    nuevaOferta = { offer_name: this.state.offer_name, offer_banner: banner.name, offer_terms: this.state.offer_terms, offer_begindate: new Date(this.state.offer_begindate), offer_enddate: new Date(this.state.offer_enddate),ContractorId:this.state.ContractorId };
                     console.log(nuevaOferta);
-                    fetch('/api/contractor' + this.state.ContractorId + '/offer/' , {
+                    fetch('http://localhost:8082/api/contractor/' + this.state.ContractorId + '/offer/' , {
                         method: 'POST',
                         body: JSON.stringify(nuevaOferta),
                         headers: {
@@ -135,7 +135,7 @@ class AddOffer extends Component {
                     }).then(data => {
                         this.setState({
                             procesando: false
-                        }, () => { M.toast({ html: this.state.messages['Offer.CorrectCreate'], classes: 'rounded' }); });
+                        }, () => { M.toast({ html: "Ok, Offer created" , classes: 'rounded' }); });
 
                         this.props.post();
 

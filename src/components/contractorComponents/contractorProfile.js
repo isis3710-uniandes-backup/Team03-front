@@ -10,7 +10,7 @@ class ContractorProfile extends Component{
         creditcards:[],
         contracts: [] 
     }
-    fetch('/api/contractor/'+this.state.idLogged).then(res => res.json()).then(data => { 
+    fetch('http://localhost:8082/api/contractor/'+this.state.idLogged).then(res => res.json()).then(data => { 
           this.setState({
             contractor:data,
             contracts: data.Contracts,
