@@ -74,7 +74,8 @@ class AddOffer extends Component {
                         body: JSON.stringify(nuevaOferta),
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'token': this.props.token
                         }
                     }).then(res => {
                         if (res.ok) {
@@ -118,7 +119,8 @@ class AddOffer extends Component {
                         body: JSON.stringify(nuevaOferta),
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'token': this.props.token
                         }
                     }).then(res => {
                         if (res.ok) {

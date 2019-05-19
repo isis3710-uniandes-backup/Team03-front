@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import M from "materialize-css";
 import AddOffer from './AddOffer';
 import OfferProfile from '../offerComponents/OfferProfile';
-import { FormattedMessage,FormattedDate } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
 class ContractorOffers extends Component {
 
@@ -33,10 +33,13 @@ class ContractorOffers extends Component {
   }
 
   actualizar() {
-    fetch('/api/contractor/' + this.state.idLogged).then(res => res.json()).then(data => {
+    fetch('/api/contractor/' + this.state.idLogged, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
       if (data.Offers == null) {
         this.setState({
-            contractor: data
+          contractor: data
         });
       }
       else {
@@ -85,9 +88,15 @@ class ContractorOffers extends Component {
   }
 
   deleteOffer(id) {
-    fetch('/api/contractor/'+this.state.idLogged+'/offer/'+ id).then(res => res.json()).then(data => {
+    fetch('/api/contractor/' + this.state.idLogged + '/offer/' + id, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
 
-      fetch('/api/contractor/'+this.state.idLogged+'/offer/'+ id, { method: 'DELETE' }).then(res => {
+      fetch('/api/contractor/' + this.state.idLogged + '/offer/' + id, {
+        method: 'DELETE',
+        headers: { 'token': this.props.token }
+      }).then(res => {
         if (res.ok) {
           M.toast({ html: 'Oferta eliminada', classes: 'rounded' });
           this.actualizar();
@@ -105,7 +114,10 @@ class ContractorOffers extends Component {
   }
 
   toOfferProfile(offer) {
-    fetch('/api/offer/'+ offer.id).then(res => res.json()).then(data => {
+    fetch('/api/offer/' + offer.id, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
       this.setState({
         cambiando: null,
         agregando: false,
@@ -133,7 +145,7 @@ class ContractorOffers extends Component {
         <div className="col s4" key={oferta.id}>
           <div className="card medium sticky-action">
             <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src={"./files/images/banner/" + oferta.offer_banner} alt=""/>
+              <img className="activator" src={"./files/images/banner/" + oferta.offer_banner} alt="" />
             </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{oferta.offer_name}<i className="material-icons right">more_vert</i></span>
@@ -156,7 +168,7 @@ class ContractorOffers extends Component {
                     defaultMessage="Initial Date: "
                   />
                 </b>
-                <FormattedDate value={new Date(oferta.offer_begindate)}/>
+                <FormattedDate value={new Date(oferta.offer_begindate)} />
               </p>
               <p>
                 <b>
@@ -165,7 +177,7 @@ class ContractorOffers extends Component {
                     defaultMessage="Last Date: "
                   />
                 </b>
-                <FormattedDate value={new Date(oferta.offer_enddate)}/>
+                <FormattedDate value={new Date(oferta.offer_enddate)} />
               </p>
             </div>
             <div className="card-action">
@@ -202,7 +214,7 @@ class ContractorOffers extends Component {
                 this.state.agregando ?
                   <div className="row">
                     <div className="container">
-                      <AddOffer post={this.postOffer} put={this.putOffer} idLogged={this.state.idLogged} oferta={this.state.cambiando}/>
+                      <AddOffer post={this.postOffer} put={this.putOffer} idLogged={this.state.idLogged} oferta={this.state.cambiando} token={this.props.token} />
                     </div>
                     <br></br>
                   </div>

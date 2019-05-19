@@ -67,7 +67,8 @@ class AddPortfolio extends Component {
                         body: JSON.stringify(nuevoConcurso),
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'token': this.props.token
                         }
                     }).then(res => {
                         if (res.ok) {
@@ -105,7 +106,8 @@ class AddPortfolio extends Component {
                         body: JSON.stringify(nuevoConcurso),
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'token': this.props.token
                         }
                     }).then(res => {
                         if (res.ok) {

@@ -66,7 +66,8 @@ class AddEntry extends Component {
                         body: JSON.stringify(nuevaEntrada),
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'token': this.props.token
                         }
                     }).then(res => {
                         if (res.ok) {
@@ -103,7 +104,8 @@ class AddEntry extends Component {
                         body: JSON.stringify(nuevaEntrada),
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'token': this.props.token
                         }
                     }).then(res => {
                         if (res.ok) {

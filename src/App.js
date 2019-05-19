@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Home from './components/Home'
 import SignUp from './components/SignUp'
 import LogIn from './components/LogIn'
+import Tokenizer from './components/Tokenizer'
 import UserProfile from './components/userComponents/UserProfile'
 import ContractorProfile from './components/contractorComponents/contractorProfile'
 import UserPortfolios from './components/userComponents/UserPortfolios'
@@ -23,11 +24,13 @@ class App extends Component {
       login: false,
       signup: false,
       idIniciado: 0,
+      token: '',
       nombreIniciado: '',
       viendoPortafolios: false,
       viendoOfertas: false,
       viendoTodasOfertas: false,
       viendoTodosPortafolios: false,
+      viendoTokenizer: false,
       messages: this.props.messages
     }
     this.toLogin = this.toLogin.bind(this);
@@ -40,8 +43,12 @@ class App extends Component {
     this.toOffers = this.toOffers.bind(this);
     this.toAllOffers = this.toAllOffers.bind(this);
     this.toAllPortfolios = this.toAllPortfolios.bind(this);
+    this.toTokenizer = this.toTokenizer.bind(this);
   }
 
+  componentDidMount() {
+    M.AutoInit();
+  }
 
   toLogin() {
     this.setState({
@@ -65,8 +72,12 @@ class App extends Component {
     const idLogeado = conectado.idIdentified;
     var nombreLogeado = '';
     const user = conectado.user;
+    const token = conectado.token;
     if (user) {
-      fetch('/api/user/' + idLogeado).then(res => res.json()).then(data => {
+      fetch('/api/user/' + idLogeado, {
+        method: 'GET',
+        headers: { 'token': token }
+      }).then(res => res.json()).then(data => {
         nombreLogeado = data.user_login;
         this.setState({
           login: false,
@@ -74,11 +85,15 @@ class App extends Component {
           iniciadoUser: true,
           iniciadoContractor: false,
           idIniciado: idLogeado,
+          token: token,
           nombreIniciado: nombreLogeado
         });
       });
     } else {
-      fetch('/api/contractor/' + idLogeado).then(res => res.json()).then(data => {
+      fetch('/api/contractor/' + idLogeado, {
+        method: 'GET',
+        headers: { 'token': token }
+      }).then(res => res.json()).then(data => {
         nombreLogeado = data.contractor_login;
         this.setState({
           login: false,
@@ -86,6 +101,7 @@ class App extends Component {
           iniciadoUser: false,
           iniciadoContractor: true,
           idIniciado: idLogeado,
+          token: token,
           nombreIniciado: nombreLogeado
         });
       });
@@ -96,8 +112,8 @@ class App extends Component {
     this.setState({
       viendoPortafolios: false,
       viendoTodosPortafolios: false,
-      viendoOfertas:false,
-      viendoTodasOfertas:false
+      viendoOfertas: false,
+      viendoTodasOfertas: false
     });
   }
 
@@ -111,8 +127,9 @@ class App extends Component {
       nombreIniciado: 0,
       viendoPortafolios: false,
       viendoTodosPortafolios: false,
-      viendoOfertas:false,
-      viendoTodasOfertas:false
+      viendoOfertas: false,
+      viendoTodasOfertas: false,
+      viendoTokenizer: false
     });
     M.toast({ html: 'Sesión cerrada', classes: 'rounded' });
   }
@@ -122,7 +139,8 @@ class App extends Component {
       viendoPortafolios: true,
       viendoOfertas: false,
       viendoTodosPortafolios: false,
-      viendoTodasOfertas: false
+      viendoTodasOfertas: false,
+      viendoTokenizer: false
     });
   }
 
@@ -131,7 +149,8 @@ class App extends Component {
       viendoPortafolios: false,
       viendoOfertas: true,
       viendoTodosPortafolios: false,
-      viendoTodasOfertas: false
+      viendoTodasOfertas: false,
+      viendoTokenizer: false
     });
   }
 
@@ -142,7 +161,8 @@ class App extends Component {
       viendoPortafolios: false,
       viendoTodosPortafolios: true,
       viendoTodasOfertas: false,
-      viendoOfertas: false
+      viendoOfertas: false,
+      viendoTokenizer: false
     });
   }
 
@@ -153,7 +173,8 @@ class App extends Component {
       viendoPortafolios: false,
       viendoTodosPortafolios: false,
       viendoTodasOfertas: true,
-      viendoOfertas: false
+      viendoOfertas: false,
+      viendoTokenizer: false
     });
   }
 
@@ -165,11 +186,23 @@ class App extends Component {
         viendoPortafolios: false,
         viendoTodosPortafolios: false,
         viendoTodasOfertas: false,
-        viendoOfertas: false
+        viendoOfertas: false,
+        viendoTokenizer: false
       });
     }
   }
 
+  toTokenizer() {
+    this.setState({
+      login: false,
+      signup: false,
+      viendoPortafolios: false,
+      viendoTodosPortafolios: false,
+      viendoTodasOfertas: false,
+      viendoOfertas: false,
+      viendoTokenizer: true
+    });
+  }
 
   render() {
     return (
@@ -181,11 +214,38 @@ class App extends Component {
                 <div className="row">
                   <div className="col s12">
                     <a href="#" onClick={this.toHome} className="brand-logo"><img className="responsive-img" src={logo} alt="Logo" width="40px" height="40px" /> Minerva's Gallery</a>
-                    <a  data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                    
-                      {
-                        this.state.iniciadoUser ?
+                    <a data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+
+                    {
+                      this.state.iniciadoUser ?
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
+                          <li>
+                            <a onClick={this.toProfile}>
+                              <FormattedMessage
+                                id="App.Profile"
+                                defaultMessage="Profile"
+                              />
+                            </a>
+                          </li>
+                          <li>
+                            <a onClick={this.toPortfolios}>
+                              <FormattedMessage
+                                id="App.UserPortfolios"
+                                defaultMessage="My Portfolios"
+                              />
+                            </a>
+                          </li>
+                          <li>
+                            <a className="modal-trigger" href="#confirmModal">
+                              <FormattedMessage
+                                id="App.SignOut"
+                                defaultMessage="Sign Out"
+                              />
+                            </a>
+                          </li>
+                        </ul>
+                        : this.state.iniciadoContractor ?
+                          <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
                               <a onClick={this.toProfile}>
                                 <FormattedMessage
@@ -195,10 +255,10 @@ class App extends Component {
                               </a>
                             </li>
                             <li>
-                              <a onClick={this.toPortfolios}>
+                              <a onClick={this.toOffers}>
                                 <FormattedMessage
-                                  id="App.UserPortfolios"
-                                  defaultMessage="My Portfolios"
+                                  id="App.ContractorOffers"
+                                  defaultMessage="My Offers"
                                 />
                               </a>
                             </li>
@@ -210,71 +270,52 @@ class App extends Component {
                                 />
                               </a>
                             </li>
-                            </ul> 
-                          : this.state.iniciadoContractor ?
+                          </ul>
+                          :
                           <ul id="nav-mobile" className="right hide-on-med-and-down">
-                              <li>
-                                <a onClick={this.toProfile}>
-                                  <FormattedMessage
-                                    id="App.Profile"
-                                    defaultMessage="Profile"
-                                  />
-                                </a>
-                              </li>
-                              <li>
-                                <a onClick={this.toOffers}>
-                                  <FormattedMessage
-                                    id="App.ContractorOffers"
-                                    defaultMessage="My Offers"
-                                  />
-                                </a>
-                              </li>
-                              <li>
-                                <a className="modal-trigger" href="#confirmModal">
-                                  <FormattedMessage
-                                    id="App.SignOut"
-                                    defaultMessage="Sign Out"
-                                  />
-                                </a>
-                              </li>
-                              </ul>
-                            :
-                            <ul id="nav-mobile" className="right hide-on-med-and-down">
-                              <li>
-                                <a onClick={this.toSignUp}>
-                                  <FormattedMessage
-                                    id="App.SignUp"
-                                    defaultMessage="Sign Up"
-                                  />
-                                </a>
-                              </li>
-                              <li>
-                                <a onClick={this.toLogin}>
-                                  <FormattedMessage
-                                    id="App.Login"
-                                    defaultMessage="Sign In"
-                                  />
-                                </a>
-                              </li>
-                              <li>
-                                <a onClick={this.toAllPortfolios}>
-                                  <FormattedMessage
-                                    id="App.Portfolios"
-                                    defaultMessage="Portfolios"
-                                  />
-                                </a>
-                              </li>
-                              <li>
-                                <a onClick={this.toAllOffers}>
-                                  <FormattedMessage
-                                    id="App.Offers"
-                                    defaultMessage="Offers"
-                                  />
-                                </a>
-                              </li>
-                              </ul>
-                      }
-                    
+                            <li>
+                              <a onClick={this.toSignUp}>
+                                <FormattedMessage
+                                  id="App.SignUp"
+                                  defaultMessage="Sign Up"
+                                />
+                              </a>
+                            </li>
+                            <li>
+                              <a onClick={this.toLogin}>
+                                <FormattedMessage
+                                  id="App.Login"
+                                  defaultMessage="Sign In"
+                                />
+                              </a>
+                            </li>
+                            <li>
+                              <a onClick={this.toAllPortfolios}>
+                                <FormattedMessage
+                                  id="App.Portfolios"
+                                  defaultMessage="Portfolios"
+                                />
+                              </a>
+                            </li>
+                            <li>
+                              <a onClick={this.toAllOffers}>
+                                <FormattedMessage
+                                  id="App.Offers"
+                                  defaultMessage="Offers"
+                                />
+                              </a>
+                            </li>
+                            <li>
+                              <a onClick={this.toTokenizer}>
+                                <FormattedMessage
+                                  id="App.Token"
+                                  defaultMessage="Tokenizer"
+                                />
+                              </a>
+                            </li>
+                          </ul>
+                    }
+
                   </div>
                 </div>
               </div>
@@ -407,6 +448,14 @@ class App extends Component {
                       />
                     </a>
                   </li>
+                  <li>
+                    <a onClick={this.toTokenizer}>
+                      <FormattedMessage
+                        id="App.Token"
+                        defaultMessage="Tokenizer"
+                      />
+                    </a>
+                  </li>
                 </ul>
           }
         </header>
@@ -424,20 +473,20 @@ class App extends Component {
                 : this.state.iniciadoUser ?
                   this.state.viendoPortafolios ?
                     <div>
-                      <UserPortfolios idLogged={this.state.idIniciado} messages={this.state.messages} />
+                      <UserPortfolios idLogged={this.state.idIniciado} token={this.state.token} messages={this.state.messages} />
                     </div>
                     :
                     <div>
-                      <UserProfile idLogged={this.state.idIniciado} messages={this.state.messages} />
+                      <UserProfile idLogged={this.state.idIniciado} token={this.state.token} messages={this.state.messages} />
                     </div>
                   : this.state.iniciadoContractor ?
                     this.state.viendoOfertas ?
                       <div>
-                        <ContractorOffers idLogged={this.state.idIniciado} messages={this.state.messages} />
+                        <ContractorOffers idLogged={this.state.idIniciado} token={this.state.token} messages={this.state.messages} />
                       </div>
                       :
                       <div>
-                        <ContractorProfile idLogged={this.state.idIniciado} messages={this.state.messages} />
+                        <ContractorProfile idLogged={this.state.idIniciado} token={this.state.token} messages={this.state.messages} />
                       </div>
                     :
                     this.state.viendoTodosPortafolios ?
@@ -450,9 +499,14 @@ class App extends Component {
                           <OfferList />
                         </div>
                         :
-                        <div>
-                          <Home />
-                        </div>
+                        this.state.viendoTokenizer ?
+                          <div>
+                            <Tokenizer />
+                          </div>
+                          :
+                          <div>
+                            <Home />
+                          </div>
           }
         </main >
         <footer className="page-footer grey darken-4">
@@ -488,7 +542,7 @@ class App extends Component {
           <div className="footer-copyright">
             <div className="container">
               © 2019 Copyright Text
-        <a className="grey-text text-lighten-4 right" href="#app">
+        <a className="grey-text text-lighten-4 right" href="#0" onClick={this.toHome}>
                 <FormattedMessage
                   id="Home"
                   defaultMessage="Home"

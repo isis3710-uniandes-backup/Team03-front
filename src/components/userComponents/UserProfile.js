@@ -26,7 +26,10 @@ class UserProfile extends Component {
       services: [],
       dataV:[]
     }
-    fetch('http://localhost:8082/api/user/' + this.state.idLogged).then(res => res.json()).then(data => {
+    fetch('/api/user/' + this.state.idLogged, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
       data.user_birthdate=data.user_birthdate.split('T')[0];
       if (data.Portfolios == null) {
         this.setState({

@@ -9,6 +9,7 @@
     "App.Login": "Sign In",
     "App.Portfolios": "Portfolios",
     "App.Offers": "Offers",
+    "App.Token":"Tokenizer",
     "App.SignOutMessageTitle": "Log Out?",
     "App.SignOutMessage": "Are you sure you want to log out?",
     "App.No": "No",
@@ -92,8 +93,6 @@
     "Offers.DeleteTitle":"Delete Offer?",
     "Offers.DeleteMessage":"If the offer has entries, these will be deleted as well. Are you sure you want to delete this portfolio?",
     "Portfolio.Entries":"Number of Entries"
-
-  
   },
   "es": {
     "App.Profile": "Perfil",
@@ -105,6 +104,7 @@
     "App.Login": "Ingresar",
     "App.Portfolios": "Portafolios",
     "App.Offers": "Ofertas",
+    "App.Token":"Tokenizer",
     "App.SignOutMessageTitle": "¿Desea salir?",
     "App.SignOutMessage": "¿Esta seguro que quiere salir?",
     "App.No": "NO",

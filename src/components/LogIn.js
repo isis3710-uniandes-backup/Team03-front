@@ -26,31 +26,49 @@ class LogIn extends Component {
         var identified = false;
         var user = false;
         var idIdentified = 0;
-        fetch('/api/user').then(res => res.json()).then(data => {
-            data.forEach((dat) => {
-                if ((dat.user_email === this.state.user_login || dat.user_login === this.state.user_login) && dat.user_password === this.state.user_password) {
-                    idIdentified = dat.id;
-                    identified = true;
-                    user = true;
-                }
-            });
+        var token = '';
+        const loginAttempt = {
+            login: this.state.user_login,
+            password: this.state.user_password
+        }
+        fetch('/api/user/login', {
+            method: 'POST',
+            body: JSON.stringify(loginAttempt),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()).then(data => {
+            if (data.token !== undefined & data.id !== undefined){
+                idIdentified = data.id;
+                token = data.token;
+                identified = true;
+                user = true;
+            }
 
             if (identified === true) {
                 M.toast({ html: this.state.messages['SignIn.Identified'], classes: 'rounded' });
-                this.props.enableLogIn({ idIdentified, user });
+                this.props.enableLogIn({ idIdentified, user,token });
             }
             else {
-                fetch('/api/contractor').then(res => res.json()).then(data => {
-                    data.forEach((dat) => {
-                        if ((dat.contractor_email === this.state.user_login || dat.contractor_login === this.state.user_login) && dat.contractor_password === this.state.user_password) {
-                            idIdentified = dat.id;
-                            identified = true;
-                        }
-                    });
+                fetch('/api/contractor/login', {
+                    method: 'POST',
+                    body: JSON.stringify(loginAttempt),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json()).then(data => {
+
+                    if (data.token !== undefined  & data.id !== undefined){
+                        idIdentified = data.id;
+                        token = data.token;
+                        identified = true;
+                    }
 
                     if (identified === true) {
                         M.toast({ html: this.state.messages['SignIn.Identified'], classes: 'rounded' });
-                        this.props.enableLogIn({ idIdentified, user });
+                        this.props.enableLogIn({ idIdentified, user,token });
                     } else if (this.state.user_password === '' || this.state.user_login === '') {
                         M.toast({ html: this.state.messages['SignIn.NotValid'], classes: 'rounded' });
                     }
@@ -87,7 +105,7 @@ class LogIn extends Component {
                             <br></br>
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <input id="user_login" type="email" className="validate" onChange={this.handleInput} />
+                                    <input id="user_login" type="text" className="validate" onChange={this.handleInput} />
                                     <label htmlFor="user_login">
                                         <FormattedMessage
                                             id="SignIn.UserLoginLabel"

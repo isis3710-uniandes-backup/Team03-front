@@ -1,59 +1,62 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class ContractorProfile extends Component{
+class ContractorProfile extends Component {
 
-  constructor(props){
-    super(props);    
-    this.state={
-        idLogged : this.props.idLogged,
-        contractor:{},
-        creditcards:[],
-        contracts: [] 
+  constructor(props) {
+    super(props);
+    this.state = {
+      idLogged: this.props.idLogged,
+      contractor: {},
+      creditcards: [],
+      contracts: []
     }
-    fetch('http://localhost:8082/api/contractor/'+this.state.idLogged).then(res => res.json()).then(data => { 
-          this.setState({
-            contractor:data,
-            contracts: data.Contracts,
-            creditcards: data.CreditCards,
+    fetch('/api/contractor/' + this.props.idLogged, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
+      this.setState({
+        contractor: data,
+        contracts: data.Contracts,
+        creditcards: data.CreditCards,
 
-          }); 
-      });    
-  }
-  
-  componentDidMount(){
-    document.dispatchEvent(new Event('component'));       
+      });
+    });
   }
 
-  render(){
-    
-    return(
-                
-        <div className = "container">
-            <center><h5>Mi perfil</h5></center>
-            <br></br>
-            <div className = "container">
-            <table>
-              <tbody>
-                <tr>
-                  <td><b>Nombre</b></td>
-                  <td>{this.state.contractor.contractor_name}</td>            
-                </tr>
-                <tr>
-                  <td><b>Login</b></td>
-                  <td>{this.state.contractor.contractor_login}</td>                
-                </tr>
-                <tr>
-                  <td><b>Correo electrónico</b></td>
-                  <td>{this.state.contractor.contractor_email}</td>                
-                </tr>
-                <tr>
-                  <td><b>Número de contratos</b></td>
-                  <td>{this.state.contracts.length}</td>                
-                </tr>
-              </tbody>
-            </table>
-            </div>
-        </div>        
+  componentDidMount() {
+    document.dispatchEvent(new Event('component'));
+  }
+
+  render() {
+
+    return (
+
+      <div className="container">
+        <center><h5>Mi perfil</h5></center>
+        <br></br>
+        <div className="container">
+          <table>
+            <tbody>
+              <tr>
+                <td><b>Nombre</b></td>
+                <td>{this.state.contractor.contractor_name}</td>
+              </tr>
+              <tr>
+                <td><b>Login</b></td>
+                <td>{this.state.contractor.contractor_login}</td>
+              </tr>
+              <tr>
+                <td><b>Correo electrónico</b></td>
+                <td>{this.state.contractor.contractor_email}</td>
+              </tr>
+              <tr>
+                <td><b>Número de contratos</b></td>
+                <td>{this.state.contracts.length}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     )
   }
 }

@@ -36,7 +36,10 @@ class UserPortfolios extends Component {
 
   actualizar() {
 
-    fetch('/api/user/' + this.state.idLogged).then(res => res.json()).then(data => {
+    fetch('/api/user/' + this.state.idLogged, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
       if (data.Portfolios == null) {
         this.setState({
           user: data
@@ -88,9 +91,15 @@ class UserPortfolios extends Component {
   }
 
   deletePortfolio(id) {
-    fetch('http://localhost:8082/api/portfolio/' + id).then(res => res.json()).then(data => {
+    fetch('http://localhost:8082/api/portfolio/' + id, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
 
-      fetch('http://localhost:8082/api/portfolio/' + id, { method: 'DELETE' }).then(res => {
+      fetch('http://localhost:8082/api/portfolio/' + id, {
+        method: 'DELETE',
+        headers: { 'token': this.props.token }
+      }).then(res => {
         if (res.ok) {
           M.toast({ html: 'Portafolio eliminado', classes: 'rounded' });
           this.actualizar();
@@ -112,7 +121,10 @@ class UserPortfolios extends Component {
   }
 
   toPortfolioProfile(portfolio) {
-    fetch('http://localhost:8082/api/portfolio/' + portfolio.id).then(res => res.json()).then(data => {
+    fetch('http://localhost:8082/api/portfolio/' + portfolio.id, {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    }).then(res => res.json()).then(data => {
       this.setState({
         cambiando: null,
         agregando: false,
@@ -139,7 +151,7 @@ class UserPortfolios extends Component {
         <div className="col s4" key={portafolio.id}>
           <div className="card medium sticky-action">
             <div className="card-image waves-effect waves-block waves-light">
-              <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt={portafolio.portfolio_name}/>
+              <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt={portafolio.portfolio_name} />
             </div>
             <div className="card-content">
               <span className="card-title activator grey-text text-darken-4">{portafolio.portfolio_name}<i className="material-icons right">more_vert</i></span>
@@ -153,7 +165,7 @@ class UserPortfolios extends Component {
                     id="Portfolio.Type"
                     defaultMessage="Type"
                   />
-                </b>: 
+                </b>:
                 {portafolio.portfolio_type}
               </p>
               <p>
@@ -162,21 +174,21 @@ class UserPortfolios extends Component {
                     id="Portfolio.Description"
                     defaultMessage="Description"
                   />
-                </b>: 
+                </b>:
                 {portafolio.portfolio_description}
               </p>
             </div>
             <div className="card-action">
               <span onClick={() => this.toPortfolioProfile(portafolio)} className=" btn-flat  black-text">
                 <b>
-                  <FormattedMessage  id="Portfolios.Open" defaultMessage="Description"/>
+                  <FormattedMessage id="Portfolios.Open" defaultMessage="Description" />
                 </b>
               </span>
               <span onClick={() => this.compartirURL(portafolio.portfolio_url)} className=" btn-flat black-text">
-                <b><FormattedMessage  id="Portfolios.Share"  defaultMessage="Share" /></b>
+                <b><FormattedMessage id="Portfolios.Share" defaultMessage="Share" /></b>
               </span>
-              <a href="#confirmDeleteModal" onClick = {() => this.toDelete(portafolio.id)} className=" waves-effect waves-teal btn-flat modal-trigger black-text"><i className="material-icons right">delete</i><FormattedMessage  id="Portfolios.Delete"  defaultMessage="Delete" /></a>
-              <span onClick = {() => this.toEdit(portafolio)} className="waves-effect waves-teal btn-flat black-text"><i className="material-icons right">edit</i><FormattedMessage  id="Portfolios.Edit"  defaultMessage="Edit" /></span>
+              <a href="#confirmDeleteModal" onClick={() => this.toDelete(portafolio.id)} className=" waves-effect waves-teal btn-flat modal-trigger black-text"><i className="material-icons right">delete</i><FormattedMessage id="Portfolios.Delete" defaultMessage="Delete" /></a>
+              <span onClick={() => this.toEdit(portafolio)} className="waves-effect waves-teal btn-flat black-text"><i className="material-icons right">edit</i><FormattedMessage id="Portfolios.Edit" defaultMessage="Edit" /></span>
             </div>
           </div>
 
@@ -201,7 +213,7 @@ class UserPortfolios extends Component {
                 this.state.agregando ?
                   <div className="row">
                     <div className="container">
-                      <AddPortfolio post={this.postPortfolio} put={this.putPortfolio} idLogged={this.state.user.id} portafolio={this.state.cambiando} messages={this.state.messages} />
+                      <AddPortfolio post={this.postPortfolio} put={this.putPortfolio} idLogged={this.state.user.id} portafolio={this.state.cambiando} messages={this.state.messages} token={this.props.token}/>
                     </div>
                     <br></br>
                   </div>
