@@ -2,6 +2,9 @@
 ### Vídeo
 https://youtu.be/m2t0Huz39ds
 
+###URL
+https://minervas-gallery.herokuapp.com/
+
 ## Instrucciones
 Para ejecutar el proyecto, es necesario ejecutar tanto el front-end como el back-end en la misma maquina.
 De lo contrario, es necesario especificar la ip y el puerto en el que está siendo ejecutado el back-end en los lugares donde este es referenciado en el front-end.
