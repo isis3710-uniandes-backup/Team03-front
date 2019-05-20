@@ -162,7 +162,7 @@ class AddOffer extends Component {
         data.append('file', banner);
         data.append('filename', banner.name);
 
-        fetch('/banner', {
+        fetch('http://172.24.41.25:8082/banner', {
             method: 'POST',
             body: data
         }).then((res) => console.log(res)).catch(error => console.log(error.message));

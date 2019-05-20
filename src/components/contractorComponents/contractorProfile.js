@@ -10,7 +10,7 @@ class ContractorProfile extends Component {
       creditcards: [],
       contracts: []
     }
-    fetch('/api/contractor/' + this.props.idLogged, {
+    fetch('http://172.24.41.25:8082/api/contractor/' + this.props.idLogged, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {

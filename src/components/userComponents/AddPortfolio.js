@@ -62,7 +62,7 @@ class AddPortfolio extends Component {
                     }
                     console.log(nuevoConcurso);
 
-                    fetch('/api/portfolio/' + this.props.portafolio.id, {
+                    fetch('http://172.24.41.25:8082/api/portfolio/' + this.props.portafolio.id, {
                         method: 'PUT',
                         body: JSON.stringify(nuevoConcurso),
                         headers: {
@@ -101,7 +101,7 @@ class AddPortfolio extends Component {
                 else {
                     const nuevoConcurso = { portfolio_name: this.state.portfolio_name, portfolio_banner: banner.name, portfolio_url: this.state.portfolio_url.replace(/ /g, ""), portfolio_type: this.state.portfolio_type, portfolio_description: this.state.portfolio_description, UserId: this.state.UserId};
                     console.log(nuevoConcurso); 
-                    fetch('/api/portfolio', {
+                    fetch('http://172.24.41.25:8082/api/portfolio', {
                         method: 'POST',
                         body: JSON.stringify(nuevoConcurso),
                         headers: {

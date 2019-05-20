@@ -74,7 +74,7 @@ class App extends Component {
     const user = conectado.user;
     const token = conectado.token;
     if (user) {
-      fetch('/api/user/' + idLogeado, {
+      fetch('http://172.24.41.25:8082/api/user/' + idLogeado, {
         method: 'GET',
         headers: { 'token': token }
       }).then(res => res.json()).then(data => {
@@ -90,7 +90,7 @@ class App extends Component {
         });
       });
     } else {
-      fetch('/api/contractor/' + idLogeado, {
+      fetch('http://172.24.41.25:8082/api/contractor/' + idLogeado, {
         method: 'GET',
         headers: { 'token': token }
       }).then(res => res.json()).then(data => {

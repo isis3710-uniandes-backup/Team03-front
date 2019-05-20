@@ -33,7 +33,7 @@ class ContractorOffers extends Component {
   }
 
   actualizar() {
-    fetch('/api/contractor/' + this.state.idLogged, {
+    fetch('http://172.24.41.25:8082/api/contractor/' + this.state.idLogged, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {

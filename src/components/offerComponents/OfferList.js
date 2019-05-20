@@ -15,7 +15,7 @@ class OfferList extends Component {
     }
 
     actualizar() {
-        fetch('/api/offer').then(res => res.json()).then(data => {
+        fetch('http://172.24.41.25:8082/api/offer').then(res => res.json()).then(data => {
             if (data != null) {
                 this.setState({
                     ofertas: data
@@ -34,7 +34,7 @@ class OfferList extends Component {
 
 
     toOfferProfile(offer) {
-        fetch('/api/offer/' + offer.id).then(res => res.json()).then(data => {
+        fetch('http://172.24.41.25:8082/api/offer/' + offer.id).then(res => res.json()).then(data => {
             this.setState({
                 cambiando: null,
                 agregando: false,
