@@ -7,7 +7,8 @@ import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 import localeData from './data.json';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import PortfolioFromURL from './PortfolioFromURL'
+import PortfolioFromURL from './PortfolioFromURL';
+import * as serviceWorker from './serviceWorker';
 
 addLocaleData([...en, ...es]);
 
@@ -33,3 +34,4 @@ render(
     </IntlProvider>,
     document.getElementById("app")
 );
+serviceWorker.register();
