@@ -2,7 +2,7 @@
 ### Vídeo
 https://youtu.be/m2t0Huz39ds
 
-###URL
+### URL
 https://minervas-gallery.herokuapp.com/
 
 ## Instrucciones
