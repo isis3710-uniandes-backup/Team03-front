@@ -3,7 +3,7 @@
 https://youtu.be/m2t0Huz39ds
 
 ### URL
-https://minervas-gallery.herokuapp.com/ o http://172.24.41.64:8082/
+https://minervas-gallery.herokuapp.com/ o http://172.24.41.25:3000/
 
 ## Instrucciones
 Para ejecutar el proyecto, es necesario ejecutar tanto el front-end como el back-end en la misma maquina.

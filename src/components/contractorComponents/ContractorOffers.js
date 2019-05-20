@@ -88,12 +88,12 @@ class ContractorOffers extends Component {
   }
 
   deleteOffer(id) {
-    fetch('/api/contractor/' + this.state.idLogged + '/offer/' + id, {
+    fetch('http://172.24.41.25:8082/api/contractor/' + this.state.idLogged + '/offer/' + id, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {
 
-      fetch('/api/contractor/' + this.state.idLogged + '/offer/' + id, {
+      fetch('http://172.24.41.25:8082/api/contractor/' + this.state.idLogged + '/offer/' + id, {
         method: 'DELETE',
         headers: { 'token': this.props.token }
       }).then(res => {
@@ -114,7 +114,7 @@ class ContractorOffers extends Component {
   }
 
   toOfferProfile(offer) {
-    fetch('/api/offer/' + offer.id, {
+    fetch('http://172.24.41.25:8082/api/offer/' + offer.id, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {

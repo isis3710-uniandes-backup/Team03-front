@@ -91,12 +91,12 @@ class UserPortfolios extends Component {
   }
 
   deletePortfolio(id) {
-    fetch('http://localhost:8082/api/portfolio/' + id, {
+    fetch('http://172.24.41.25:8082/api/portfolio/' + id, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {
 
-      fetch('http://localhost:8082/api/portfolio/' + id, {
+      fetch('http://172.24.41.25:8082/api/portfolio/' + id, {
         method: 'DELETE',
         headers: { 'token': this.props.token }
       }).then(res => {
@@ -116,12 +116,12 @@ class UserPortfolios extends Component {
     });
   }
   compartirURL(url) {
-    copy('http://localhost:8082/' + url);
+    copy('http://172.24.41.25:8082/' + url);
     M.toast({ html: 'URL del portafolio copiada en el portapapeles', displayLength: 10000, classes: 'rounded' });
   }
 
   toPortfolioProfile(portfolio) {
-    fetch('http://localhost:8082/api/portfolio/' + portfolio.id, {
+    fetch('http://172.24.41.25:8082/api/portfolio/' + portfolio.id, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {
@@ -148,7 +148,7 @@ class UserPortfolios extends Component {
   render() {
     const portafolios = this.state.portafolios.map((portafolio, i) => {
       return (
-        <div className="col s4" key={portafolio.id}>
+        <div className="col s12 m4" key={portafolio.id}>
           <div className="card medium sticky-action">
             <div className="card-image waves-effect waves-block waves-light">
               <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt={portafolio.portfolio_name} />

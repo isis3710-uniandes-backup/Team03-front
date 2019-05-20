@@ -61,7 +61,7 @@ class AddEntry extends Component {
                     }
                     console.log(nuevaEntrada);
 
-                    fetch('http://localhost:8082/api/entry/' + this.props.entry.id, {
+                    fetch('http://172.24.41.25:8082/api/entry/' + this.props.entry.id, {
                         method: 'PUT',
                         body: JSON.stringify(nuevaEntrada),
                         headers: {
@@ -99,7 +99,7 @@ class AddEntry extends Component {
                 }
                 else {
                     const nuevaEntrada = { entry_name: this.state.entry_name, entry_url: banner.name, entry_hashtags: this.state.entry_hashtags, entry_description: this.state.entry_description, PortfolioId: this.state.PortfolioId };
-                    fetch('http://localhost:8082/api/entry', {
+                    fetch('http://172.24.41.25:8082/api/entry', {
                         method: 'POST',
                         body: JSON.stringify(nuevaEntrada),
                         headers: {

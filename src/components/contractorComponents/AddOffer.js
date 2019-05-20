@@ -114,7 +114,7 @@ class AddOffer extends Component {
                 else {
                     nuevaOferta = { offer_name: this.state.offer_name, offer_banner: banner.name, offer_terms: this.state.offer_terms, offer_begindate: new Date(this.state.offer_begindate), offer_enddate: new Date(this.state.offer_enddate),ContractorId:this.state.ContractorId };
                     console.log(nuevaOferta);
-                    fetch('http://localhost:8082/api/contractor/' + this.state.ContractorId + '/offer/' , {
+                    fetch('http://172.24.41.25:8082/api/contractor/' + this.state.ContractorId + '/offer/' , {
                         method: 'POST',
                         body: JSON.stringify(nuevaOferta),
                         headers: {

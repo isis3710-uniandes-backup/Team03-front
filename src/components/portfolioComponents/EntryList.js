@@ -28,7 +28,7 @@ class EntryList extends Component {
     }
 
     actualizar() {
-        fetch('http://localhost:8082/api/portfolio/' + this.state.idPortafolio).then(res => res.json()).then(data => {
+        fetch('http://172.24.41.25:8082/api/portfolio/' + this.state.idPortafolio).then(res => res.json()).then(data => {
             if (data != null) {
                 const entries = data.Entries;
                 const newImages = [];

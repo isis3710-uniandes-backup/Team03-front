@@ -26,7 +26,7 @@ class UserProfile extends Component {
       services: [],
       dataV:[]
     }
-    fetch('http://localhost:8082/api/user/' + this.state.idLogged, {
+    fetch('http://172.24.41.25:8082/api/user/' + this.state.idLogged, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {
@@ -54,7 +54,7 @@ class UserProfile extends Component {
   }
 
   getDataVisualization(){
-    fetch('http://localhost:8082/api/portfolio/' + this.state.idLogged+"/user", {
+    fetch('http://172.24.41.25:8082/api/portfolio/' + this.state.idLogged+"/user", {
       method: 'GET',
       headers: { 'token': this.props.token }
     })
@@ -87,7 +87,7 @@ class UserProfile extends Component {
         <center><h5><FormattedMessage id="Profile.Title" defaultMessage="My Profile"/></h5></center>
         <br></br>
         <div className="row">
-        <div className="col s8">
+        <div className="col s12 m8">
           <table>
             <tbody>
               <tr>
@@ -114,9 +114,9 @@ class UserProfile extends Component {
             </tbody>
           </table>
         </div>
-        <div className="col s4">
+        <div className="col s12 m4">
         <p className="flow-text">Principales Proyectos</p>
-          <svg width={ width + margin.left + margin.right} height={height + margin.top + margin.bottom} id="svgc">
+          <svg width={ width} height={height} id="svgc">
           {this.state.dataV.length!==0&&this.printData()}        
           </svg>
         </div>

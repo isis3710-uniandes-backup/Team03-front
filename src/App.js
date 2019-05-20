@@ -535,6 +535,7 @@ class App extends Component {
                 </h3>
                 <ul>
                   <li><a className="grey-text text-lighten-3" href="mailto:cm.amaya10@uniandes.edu.co">Cristian Amaya</a></li>
+                  <li><a className="grey-text text-lighten-3" href="https://nfortiz.github.io">Nixon Ortiz</a></li>
                 </ul>
               </div>
             </div>

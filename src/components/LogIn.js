@@ -31,7 +31,7 @@ class LogIn extends Component {
             login: this.state.user_login,
             password: this.state.user_password
         }
-        fetch('http://localhost:8082/api/user/login', {
+        fetch('http://172.24.41.25:8082/api/user/login', {
             method: 'POST',
             body: JSON.stringify(loginAttempt),
             headers: {
@@ -51,7 +51,7 @@ class LogIn extends Component {
                 this.props.enableLogIn({ idIdentified, user,token });
             }
             else {
-                fetch('/api/contractor/login', {
+                fetch('http://172.24.41.25:8082/api/contractor/login', {
                     method: 'POST',
                     body: JSON.stringify(loginAttempt),
                     headers: {

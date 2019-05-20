@@ -18,7 +18,7 @@ class PortfolioList extends Component {
     }
 
     actualizar() {
-        fetch('http://localhost:8082/api/portfolio/').then(res => res.json()).then(data => {
+        fetch('http://172.24.41.25:8082/api/portfolio/').then(res => res.json()).then(data => {
             if (data != null) {
                 this.setState({
                     portafolios: data
@@ -36,7 +36,7 @@ class PortfolioList extends Component {
       }
 
     toPortfolioProfile(contest) {
-        fetch('http://localhost:8082/api/portfolio/' + contest.id).then(res => res.json()).then(data => {
+        fetch('http://172.24.41.25:8082/api/portfolio/' + contest.id).then(res => res.json()).then(data => {
             this.setState({
                 cambiando: null,
                 agregando: false,
@@ -46,7 +46,7 @@ class PortfolioList extends Component {
     }
 
     compartirURL(url) {
-        copy('http://localhost:8082/' + url);
+        copy('http://172.24.41.25:8082' + url);
         M.toast({ html: 'URL del portafolio copiada en el portapapeles', displayLength: 10000, classes: 'rounded' });
     }
 
@@ -55,7 +55,7 @@ class PortfolioList extends Component {
 
         const portafolios = this.state.portafolios.map((portafolio, i) => {
             return (
-                <div className="col s4" key={portafolio.id}>
+                <div className="col s12 m4" key={portafolio.id}>
                     <div className="card medium sticky-action">
                         <div className="card-image waves-effect waves-block waves-light">
                             <img className="activator" src={"./files/images/banner/" + portafolio.portfolio_banner} alt={portafolio.portfolio_name} />
