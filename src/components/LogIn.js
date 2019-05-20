@@ -31,7 +31,7 @@ class LogIn extends Component {
             login: this.state.user_login,
             password: this.state.user_password
         }
-        fetch('/api/user/login', {
+        fetch('http://localhost:8082/api/user/login', {
             method: 'POST',
             body: JSON.stringify(loginAttempt),
             headers: {

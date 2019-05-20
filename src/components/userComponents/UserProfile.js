@@ -4,15 +4,15 @@ import * as d3 from 'd3';
 
 
 const margin = {top: 40, right: 150, bottom: 60, left: 30},
-    width = 426*1.5 - margin.left - margin.right,
-    height = 350*1.5 - margin.top - margin.bottom;
+    width = 420*1.5 - margin.left - margin.right,
+    height = 300*1.5 - margin.top - margin.bottom;
 const pack = data => d3.pack()
     .size([width - 2, height - 2])
     .padding(3)
     (d3.hierarchy({children: data})
     .sum(d => d.value));
 
-    const color = data=> d3.scaleOrdinal(this.state.dataV.map(d => d.name), d3.schemeCategory10);
+    const color = data=> d3.scaleOrdinal(data.map(d => d.name), d3.schemeCategory10);
 
 
 class UserProfile extends Component {
@@ -26,7 +26,7 @@ class UserProfile extends Component {
       services: [],
       dataV:[]
     }
-    fetch('/api/user/' + this.state.idLogged, {
+    fetch('http://localhost:8082/api/user/' + this.state.idLogged, {
       method: 'GET',
       headers: { 'token': this.props.token }
     }).then(res => res.json()).then(data => {
@@ -54,7 +54,10 @@ class UserProfile extends Component {
   }
 
   getDataVisualization(){
-    fetch('http://localhost:8082/api/portfolio/' + this.state.idLogged+"/user")
+    fetch('http://localhost:8082/api/portfolio/' + this.state.idLogged+"/user", {
+      method: 'GET',
+      headers: { 'token': this.props.token }
+    })
     .then(res => res.json()).then(data=>{
       //var infoEntradasPorPort=[];
       var dataForV=data.map((d,i)=>{ return {id:i,name:d.portfolio_name,value: Math.random()*10 };});
@@ -66,11 +69,11 @@ class UserProfile extends Component {
   printData(){   
 
     const root = pack(this.state.dataV);
-    console.log(root.leaves());
+    const pintura = color(this.state.dataV);
    return root.leaves().map((e,i)=>{
      return <g transform={`translate(${e.x + 1},${e.y + 1})`  } key={i}>
-        <circle id={e.data.id} r={e.r} fillOpacity={0.7} fill="#1f77b4"></circle>
-        <text><tspan  x={`-${3}em`} y={`${0.8}em`}>{e.data.name}</tspan></text>
+        <circle id={e.data.id} r={e.r} fillOpacity={0.7} fill={pintura(e.data.name)}></circle>
+        <text><tspan  x={`-${2.5}em`} y={`${0.5}em`}>{e.data.name}</tspan></text>
       </g>
     });
     
@@ -110,12 +113,11 @@ class UserProfile extends Component {
               </tr>
             </tbody>
           </table>
-          {this.state.dataV.length}
         </div>
         <div className="col s4">
-        <p class="flow-text">Principales Proyectos</p>
+        <p className="flow-text">Principales Proyectos</p>
           <svg width={ width + margin.left + margin.right} height={height + margin.top + margin.bottom} id="svgc">
-          {this.printData()}        
+          {this.state.dataV.length!==0&&this.printData()}        
           </svg>
         </div>
         </div>
